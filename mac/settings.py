@@ -77,8 +77,11 @@ WSGI_APPLICATION = 'mac.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'MyCart',
+        'USER': 'postgres',
+        'PASSWORD': 'pallav14',
+        'HOST': 'localhost'
     }
 }
 
@@ -119,8 +122,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
+STATIC_URL = '/assets/'
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,'assets'),
+)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -132,3 +137,10 @@ STATIC_URL = '/stataic/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+EMAIL_HOST='localhost'
+EMAIL_PORT='1025'
+EMAIL_HOST_USER=''
+EMAIL_HOST_PASSWORD=''
+EMAIL_USE_TLS= False

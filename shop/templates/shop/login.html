@@ -1,0 +1,34 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} Login {% endblock %}
+{% block body %}
+<div class="container my-3">
+    <h3>Login To Your Account!</h3>
+    <form action="/shop/login/" method="post">{% csrf_token %}
+
+  <div class="form-group">
+    <label for="name">Username</label>
+    <input type="text" class="form-control" id="username" name='username' placeholder="Enter Your UserName">
+  </div>
+
+    <div class="form-group">
+    <label for="name">Password</label>
+    <input type="password" class="form-control" id="password1" name='password1' placeholder="Enter Your Password">
+  </div>
+
+        <button type="submit" class="btn btn-success submit-btn-submit">Submit</button>
+</form>
+
+</div>
+{% endblock %}
+
+{% block js%}
+<script>
+{% if nope %}
+alert('Invalid Credentials');
+
+document.location = "/shop/login";
+{% endif %}
+</script>
+
+{% endblock %}

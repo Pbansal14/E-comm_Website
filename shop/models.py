@@ -14,6 +14,16 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
 
+class Register(models.Model):
+    msg_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    username = models.CharField(max_length=50)
+    email = models.CharField(max_length=70, default="")
+    password1 = models.CharField(max_length=70, default="")
+    password2 = models.CharField(max_length=500, default="")
+
+    def __str__(self):
+        return self.username
 
 class Contact(models.Model):
     msg_id = models.AutoField(primary_key=True)
@@ -36,6 +46,9 @@ class Orders(models.Model):
     state = models.CharField(max_length=111)
     zip_code = models.CharField(max_length=111)
     phone = models.CharField(max_length=111, default="")
+
+    def __str__(self):
+        return self.name
 
 class  OrderUpdate(models.Model):
     update_id = models.AutoField(primary_key=True)
